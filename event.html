@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+    <head>
+        <script language="Javascript" type="text/javascript"> 
+            function Load()
+            {
+                // document.bgColor = "green";
+                document.images["img1"].src = "sayambar.jpg";
+            }
+            function mouseOver()
+            {
+                document.images["img1"].src = "123.jpeg";
+            }
+            function mouseOut()
+            {
+                document.images["img1"].src = "sayambar.jpg";
+            }
+        </script>
+
+    </head>
+    <body onload="Load()">
+        <img name="img1" width="400" height="400" onmouseover="mouseOver()" onmouseout="mouseOut()">
+    </body>
+</html>
