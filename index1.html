@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps</title>
+    <style>
+        #map {
+            height: 700px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            // Map options
+            var options = {
+                zoom:8,
+                center:{lat:22.5726,lng:88.3639}
+            }
+            // New Map
+            var map = new google.maps.Map(document.getElementById('map'),options);
+
+            // Add marker
+            var marker = new google.maps.Marker({
+                position:{lat:22.5726,lng:88.3639},
+                map:map
+            });
+
+            // Add listener
+            var info = new google.maps.InfoWindow({
+                content:'<h5>Kolkata</h5>'
+            });
+
+            marker.addListener('click', function(){
+                info.open(map, marker);
+            });
+
+            // Listen for click on map
+            google.maps.event.addListener(map,'click',
+            function(event) {
+                // Add Marker
+                addMarker({coords:event.latLng});
+            });
+
+            function addMarker(props){
+                var marker = new google.maps.Marker({
+                    position:props.coords,
+                    map:map
+                });
+            }
+            
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArigXN3-OJRsgHl2qN1PLDTUDENDVJ3ck&callback=initMap">
+    </script>
+
+</body>
+</html>
