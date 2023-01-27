@@ -46,9 +46,9 @@ let name2 = {
 
 printFullName.call(name2, "Kolkata");
 
-printFullName.apply(name2, ["Kolkata"]);
+printFullName.apply(name2, ["Kolkata"]);    // it takes second argument as a array list
 
 
-let printMyName = printFullName.bind(name2, "Kolkata");
-console.log(printMyName);
-printMyName();
+let printMyName = printFullName.bind(name2, "Kolkata"); // bind method return the method which can be call later
+console.log(printMyName);   // print the function
+printMyName();  // call the function
